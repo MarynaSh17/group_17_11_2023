@@ -1,0 +1,16 @@
+import decimal
+print('~'*40)
+name = input('Введіть Ваше імя?')
+your_name = name.strip().capitalize()
+print(your_name)
+age = int(input('Введіть Ваш вік?'))
+print(age)
+salary = float(input('Введіть Вашу зарплату?'))
+print(salary)
+age_retirement = (65-age)
+print(age_retirement)
+money = round((age_retirement * 12 * salary) / 37.4)
+print(money)
+quantity_toyota = money//31_500
+print(quantity_toyota)
+print(f'я, {your_name}, зможу заробити лише __{money}__ доларів, що вистачить лише  на __{quantity_toyota}__ тойот, мене це не влаштовує, тому я буду змінювати своє життя і буду завзято вивчати програмування!')
