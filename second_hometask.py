@@ -1,4 +1,3 @@
-import decimal
 print('~'*40)
 name = input('Введіть Ваше імя?')
 your_name = name.strip().capitalize()
@@ -10,7 +9,7 @@ total_salary = round(salary, 2)
 print(total_salary)
 age_retirement = (65-age)
 print(age_retirement)
-money = round((age_retirement * 12 * total_salary) / 37.4)
+money = round((age_retirement * 12 * total_salary) / 37.3)
 print(money)
 quantity_toyota = money//31_500
 print(quantity_toyota)
