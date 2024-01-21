@@ -18,9 +18,9 @@ url_json = "https://dummyjson.com/quotes?limit=100"
 response = requests.get(url_json)
 quotes = response.json()['quotes']
 # collection.insert_many(quotes)
-# einstein_quotes = collection.find({'author': 'Albert Einstein'})
-# for quote in einstein_quotes:
-#     print(quote)
+einstein_quotes = collection.find({'author': 'Albert Einstein'})
+for quote in einstein_quotes:
+    print(quote)
 
 # Вибір цитат, що містять текст "success"
 # success_quotes = collection.find({'quote': {'$regex': 'success'}})
