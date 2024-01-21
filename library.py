@@ -2,8 +2,7 @@ def cm_to_inch(cm):
     data = cm / 2.54
     return data
 
-
-def get_even_numbers(numbers):
+def get_numbers(numbers):
     for number in numbers:
         if number % 2 == 0:
             print(number)
