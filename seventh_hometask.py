@@ -11,7 +11,6 @@ content = response.content
 
 with open('airport-codes_csv.csv', newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile, delimiter=';')
-    print(reader)
     for row in reader:
         if row['iso_country'] == 'UA':
             print(row['name'])
