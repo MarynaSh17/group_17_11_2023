@@ -10,27 +10,27 @@ url = 'mongodb+srv://{user}:{password}@' \
     password=config.PASSWORD,
 )
 client = pymongo.MongoClient(url)
-db = client['library']
+db = client['quotes_db']
 collection = db['quotes']
-response = requests.get('https://dummyjson.com/quotes?limit=100')
-data = response.json()
-# db.collection.insert_many([data])
-# print(data)
-query = {'title': {'$regex': 'Prison'}}
-query = {'quotes': 'Albert Einstein'}
-cursor = db.collection.find(query)
-for document in cursor:
-    print(document)
 
-# for book in result:
-#     print(book.get('description'))
-# print(f"{len(quotes)} quotes are successfully inserted into the collection.")
-# result = books.find()
-# print(result)
-# for book in result:
-#     if book['author'] == 'Albert Einstein':
-#         books.insert_one(quotes)
-# print('Цитати Альберта Ейнштейна успішно додані до бази даних MongoDB.')
-# query = {'author': 'Albert Einstein'}
-# for item in books.find({'screen_name':'Albert Einstein'}):
-#     print(item)
+# Запис усіх 100 цитат у колекцію
+url_json = "https://dummyjson.com/quotes?limit=100"
+response = requests.get(url_json)
+quotes = response.json()['quotes']
+# collection.insert_many(quotes)
+# einstein_quotes = collection.find({'author': 'Albert Einstein'})
+# for quote in einstein_quotes:
+#     print(quote)
+
+# Вибір цитат, що містять текст "success"
+# success_quotes = collection.find({'quote': {'$regex': 'success'}})
+# for list in success_quotes:
+#     print(list)
+
+# Додавання поля "favorite: True" до цитат автора "Mark Twain"
+# collection.update_many({'author': 'Mark Twain'}, {'$set': {'favorite': True}})
+
+# Видалення цитат автора "Vincent Van Gogh"
+# collection.delete_many({'author': 'Vincent Van Gogh'})
+# Видалення всіх даних з колекції
+# collection.delete_many({})
